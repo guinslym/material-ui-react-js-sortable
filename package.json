@@ -11,10 +11,10 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.5.1",
     "lodash": "^4.17.4",
-    "material-ui": "^0.19.4",
+    "material-ui": "0.19.4",
     "react": "^16.1.1",
-    "react-dom": "^16.1.1",
-    "react-tap-event-plugin": "^3.0.2"
+    "react-dom": "16.1.1",
+    "react-tap-event-plugin": "3.0.2"
   },
   "scripts": {
     "start": "react-scripts start",

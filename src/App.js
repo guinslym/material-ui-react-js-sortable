@@ -41,55 +41,6 @@ class App extends Component {
         username: "bdecourt2",
         email: "bdecourt2@about.me",
         passsword: "MWU9hc"
-      },
-      {
-        firstName: "Hyacintha",
-        lastName: "Choudhury",
-        username: "hchoudhury3",
-        email: "hchoudhury3@va.gov",
-        passsword: "kRtWP1"
-      },
-      {
-        firstName: "Ari",
-        lastName: "Spedroni",
-        username: "aspedroni4",
-        email: "aspedroni4@sun.com",
-        passsword: "o78ibUPPmDlZ"
-      },
-      {
-        firstName: "Abelard",
-        lastName: "Rodriguez",
-        username: "arodriguez5",
-        email: "arodriguez5@shutterfly.com",
-        passsword: "g2jd4AwfpA"
-      },
-      {
-        firstName: "Ikey",
-        lastName: "Latek",
-        username: "ilatek6",
-        email: "ilatek6@berkeley.edu",
-        passsword: "GAsgPpKvJx"
-      },
-      {
-        firstName: "Justis",
-        lastName: "Habbeshaw",
-        username: "jhabbeshaw7",
-        email: "jhabbeshaw7@simplemachines.org",
-        passsword: "GN2aQt3ZPq"
-      },
-      {
-        firstName: "Maddie",
-        lastName: "Bayne",
-        username: "mbayne8",
-        email: "mbayne8@constantcontact.com",
-        passsword: "H1GmQcyG6"
-      },
-      {
-        firstName: "Gerrie",
-        lastName: "Rulton",
-        username: "grulton9",
-        email: "grulton9@reverbnation.com",
-        passsword: "tcwp6oONe"
       }
     ],
     editIdx: -1,
