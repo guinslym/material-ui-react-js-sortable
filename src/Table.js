@@ -7,6 +7,7 @@ import {
   TableRow,
   TableRowColumn
 } from "material-ui/Table";
+
 import EditIcon from "material-ui/svg-icons/image/edit";
 import TrashIcon from "material-ui/svg-icons/action/delete";
 import DownArrow from "material-ui/svg-icons/navigation/arrow-drop-down";

@@ -18,6 +18,70 @@ const invertDirection = {
   desc: "asc"
 };
 
+
+class ParentComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { data: [
+      {accountname:'foo', negotiatedcontractvalue:'bar'},
+      {accountname:'monkey', negotiatedcontractvalue:'spank'},
+      {accountname:'chicken', negotiatedcontractvalue:'dance'},
+    ] };
+    this.onSort = this.onSort.bind(this)
+  }
+
+  componentDidMount() {
+    fetch("http://hostname:xxxx/yyyy/zzzz")
+      .then(function(response) {
+        return response.json();
+      })
+      .then(items => this.setState({ data: items }));
+  }
+
+  onSort(event, sortKey){
+    /*
+    assuming your data is something like
+    [
+      {accountname:'foo', negotiatedcontractvalue:'bar'},
+      {accountname:'monkey', negotiatedcontractvalue:'spank'},
+      {accountname:'chicken', negotiatedcontractvalue:'dance'},
+    ]
+    */
+    const data = this.state.data;
+    data.sort((a,b) => a[sortKey].localeCompare(b[sortKey]))
+    this.setState({data})
+  }
+
+  render() {
+    var newdata = this.state.data;
+
+    return (
+      <table className="m-table">
+        <thead>
+          <tr>
+            <th onClick={e => this.onSort(e, 'accountname')}>AccountName</th>
+            <th onClick={e => this.onSort(e, 'negotiatedcontractvalue')}>ContractValue</th>
+          </tr>
+        </thead>
+        <tbody>
+          {newdata.map(function(account, index) {
+            return (
+              <tr key={index} data-item={account}>
+                <td data-title="Account">{account.accountname}</td>
+                <td data-title="Value">{account.negotiatedcontractvalue}</td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    );
+  }
+}
+//
+// export default ParentComponent;
+
+
+
 class App extends Component {
   state = {
     data: [
@@ -86,37 +150,6 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div className="App">
-          <Form
-            onSubmit={submission =>
-              this.setState({
-                data: [...this.state.data, submission]
-              })
-            }
-          />
-          <div style={{ display: "flex" }}>
-            <div style={{ display: "flex", margin: "auto" }}>
-              <TextField
-                hintText="Query"
-                floatingLabelText="Query"
-                value={this.state.query}
-                onChange={e => this.setState({ query: e.target.value })}
-                floatingLabelFixed
-              />
-              <SelectField
-                style={{ marginLeft: "1em" }}
-                floatingLabelText="Select a column"
-                value={this.state.columnToQuery}
-                onChange={(event, index, value) =>
-                  this.setState({ columnToQuery: value })
-                }
-              >
-                <MenuItem value="firstName" primaryText="First Name" />
-                <MenuItem value="lastName" primaryText="Last Name" />
-                <MenuItem value="username" primaryText="Username" />
-                <MenuItem value="email" primaryText="Email" />
-              </SelectField>
-            </div>
-          </div>
           <Table
             handleSort={this.handleSort}
             handleRemove={this.handleRemove}
